@@ -21,4 +21,7 @@ Route::middleware([
 // Teacher Routes
 
 // Teacher List
-Route::get('/teachers', [TeacherController::class, 'index'])->name('teacher.read');
+Route::get('/read/teachers', [TeacherController::class, 'index'])->name('teacher.read');
+
+// Add Teacher
+Route::get('/add/teacher', [TeacherController::class, 'insert'])->name('teacher.insert');

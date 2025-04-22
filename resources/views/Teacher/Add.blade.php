@@ -23,11 +23,11 @@
                 <ul id="teacher_item" style="display:none;" class="ml-2">
                     <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
                         <i class="fa-solid fa-list"></i>
-                        <a href="{{ url('/read/teachers') }}" class="ml-1">Teachers</a>
+                        <a href="{{ url('/teachers') }}" class="ml-1">Teachers</a>
                     </li>
                     <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
                         <i class="fa-solid fa-plus"></i>
-                        <a href="{{ url('/add/teacher') }}" class="ml-1">Add</a>
+                        <a href="#" class="ml-1">Add</a>
                     </li>
                 </ul>
             </div>
@@ -97,78 +97,59 @@
                     </li>
                 </ul>
             </div>
-
-
         </div>
-        <div class="bg-white w-2/3 mt-10 p-5 rounded-lg shadow-lg h-fit">
-            <table class="w-full table-auto text-left border-separate border-spacing-0">
-                <thead class="bg-gray-100">
-                    <tr>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">ID</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">Name</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">Last Name</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">Phone</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">Class</th>
-                        <th>Action</th>
-                    </tr>
-                </thead>
-                <tbody class="text-gray-600">
-                    <tr class="border-b border-gray-200 hover:bg-gray-50">
-                        <td class="px-6 py-4 text-sm">101</td>
-                        <td class="px-6 py-4 text-sm">Ali</td>
-                        <td class="px-6 py-4 text-sm">Hassani</td>
-                        <td class="px-6 py-4 text-sm">+93798573634</td>
-                        <td class="px-6 py-4 text-sm">Grade nine</td>
-                        <td class="px-6 py-4 text-sm">
-                            <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                    class="fa-solid fa-pencil"></i></a>
-                            <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                    class="fa-solid fa-trash"></i></a>
-                        </td>
+        <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- First Name -->
+                <div class="flex flex-col">
+                    <label for="name" class="mb-2 text-sm font-medium text-gray-700">First Name</label>
+                    <input type="text" name="name" id="name" placeholder="Enter first name"
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required>
+                </div>
 
-                    </tr>
-                    <tr class="border-b border-gray-200 hover:bg-gray-50">
-                        <td class="px-6 py-4 text-sm">102</td>
-                        <td class="px-6 py-4 text-sm">Sara</td>
-                        <td class="px-6 py-4 text-sm">Noori</td>
-                        <td class="px-6 py-4 text-sm">+93798647254</td>
-                        <td class="px-6 py-4 text-sm">Grade ten</td>
-                        <td class="px-6 py-4 text-sm">
-                            <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                    class="fa-solid fa-pencil"></i></a>
-                            <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                    class="fa-solid fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr class="border-b border-gray-200 hover:bg-gray-50">
-                        <td class="px-6 py-4 text-sm">103</td>
-                        <td class="px-6 py-4 text-sm">John</td>
-                        <td class="px-6 py-4 text-sm">Doe</td>
-                        <td class="px-6 py-4 text-sm">+93798456234</td>
-                        <td class="px-6 py-4 text-sm">Grade eleven</td>
-                        <td class="px-6 py-4 text-sm">
-                            <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                    class="fa-solid fa-pencil"></i></a>
-                            <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                    class="fa-solid fa-trash"></i></a>
-                        </td>
-                    </tr>
-                    <tr class="border-b border-gray-200 hover:bg-gray-50">
-                        <td class="px-6 py-4 text-sm">104</td>
-                        <td class="px-6 py-4 text-sm">Emily</td>
-                        <td class="px-6 py-4 text-sm">Khan</td>
-                        <td class="px-6 py-4 text-sm">+93798347261</td>
-                        <td class="px-6 py-4 text-sm">Grade twelve</td>
-                        <td class="px-6 py-4 text-sm">
-                            <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                    class="fa-solid fa-pencil"></i></a>
-                            <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                    class="fa-solid fa-trash"></i></a>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
+                <!-- Last Name -->
+                <div class="flex flex-col">
+                    <label for="last_name" class="mb-2 text-sm font-medium text-gray-700">Last Name</label>
+                    <input type="text" name="last_name" id="last_name" placeholder="Enter last name"
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required>
+                </div>
+
+                <!-- Phone -->
+                <div class="flex flex-col">
+                    <label for="phone" class="mb-2 text-sm font-medium text-gray-700">Phone</label>
+                    <input type="text" name="phone" id="phone" placeholder="Enter phone number"
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required>
+                </div>
+
+                <!-- Grade -->
+                <div class="flex flex-col">
+                    <label for="grade" class="mb-2 text-sm font-medium text-gray-700">Grade</label>
+                    <input type="text" name="grade" id="grade" placeholder="Enter grade"
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required>
+                </div>
+
+                <!-- Student Name -->
+                <div class="flex flex-col md:col-span-2">
+                    <label for="student_name" class="mb-2 text-sm font-medium text-gray-700">Student Name</label>
+                    <input type="text" name="student_name" id="student_name" placeholder="Enter full student name"
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required>
+                </div>
+
+                <!-- Submit Button -->
+                <div class="md:col-span-2 text-right">
+                    <button type="submit"
+                        class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
+                        Submit
+                    </button>
+                </div>
+            </form>
         </div>
+
 
     </div>
     <script>

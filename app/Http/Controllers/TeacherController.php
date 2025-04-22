@@ -9,6 +9,12 @@ class TeacherController extends Controller
     // The teacher list 
     function index()
     {
-        return view('Teacher.Teacher');
+        return view('Teacher.Read');
+    }
+
+    // Add the Teacher
+    function insert()
+    {
+        return view('Teacher.Add');
     }
 }

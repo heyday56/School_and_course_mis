@@ -27,7 +27,7 @@
                                         </li>
                                         <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
                                                 <i class="fa-solid fa-plus"></i>
-                                                <a href="#" class="ml-1">Add</a>
+                                                <a href="{{ url('/add/teacher') }}" class="ml-1">Add</a>
                                         </li>
                                 </ul>
                         </div>
