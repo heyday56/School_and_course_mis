@@ -100,72 +100,43 @@
 
 
                 </div>
-                <div class="bg-white w-2/3 mt-10 p-5 rounded-lg shadow-lg h-fit">
+                <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit">
                         <table class="w-full table-auto text-left border-separate border-spacing-0">
                                 <thead class="bg-gray-100">
                                         <tr>
                                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">ID</th>
                                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">Name</th>
                                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">Last Name</th>
+                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">Father Name
+                                                </th>
                                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">Phone</th>
-                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">Class</th>
+                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">ID card</th>
+                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">Image</th>
                                                 <th>Action</th>
                                         </tr>
                                 </thead>
                                 <tbody class="text-gray-600">
-                                        <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                                <td class="px-6 py-4 text-sm">101</td>
-                                                <td class="px-6 py-4 text-sm">Ali</td>
-                                                <td class="px-6 py-4 text-sm">Hassani</td>
-                                                <td class="px-6 py-4 text-sm">+93798573634</td>
-                                                <td class="px-6 py-4 text-sm">Grade nine</td>
-                                                <td class="px-6 py-4 text-sm">
-                                                        <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-pencil"></i></a>
-                                                        <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-trash"></i></a>
-                                                </td>
+                                        @foreach ($teachers as $teacher)
 
-                                        </tr>
-                                        <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                                <td class="px-6 py-4 text-sm">102</td>
-                                                <td class="px-6 py-4 text-sm">Sara</td>
-                                                <td class="px-6 py-4 text-sm">Noori</td>
-                                                <td class="px-6 py-4 text-sm">+93798647254</td>
-                                                <td class="px-6 py-4 text-sm">Grade ten</td>
-                                                <td class="px-6 py-4 text-sm">
-                                                        <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-pencil"></i></a>
-                                                        <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-trash"></i></a>
-                                                </td>
-                                        </tr>
-                                        <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                                <td class="px-6 py-4 text-sm">103</td>
-                                                <td class="px-6 py-4 text-sm">John</td>
-                                                <td class="px-6 py-4 text-sm">Doe</td>
-                                                <td class="px-6 py-4 text-sm">+93798456234</td>
-                                                <td class="px-6 py-4 text-sm">Grade eleven</td>
-                                                <td class="px-6 py-4 text-sm">
-                                                        <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-pencil"></i></a>
-                                                        <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-trash"></i></a>
-                                                </td>
-                                        </tr>
-                                        <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                                <td class="px-6 py-4 text-sm">104</td>
-                                                <td class="px-6 py-4 text-sm">Emily</td>
-                                                <td class="px-6 py-4 text-sm">Khan</td>
-                                                <td class="px-6 py-4 text-sm">+93798347261</td>
-                                                <td class="px-6 py-4 text-sm">Grade twelve</td>
-                                                <td class="px-6 py-4 text-sm">
-                                                        <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-pencil"></i></a>
-                                                        <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-trash"></i></a>
-                                                </td>
-                                        </tr>
+                                                                                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->id}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->name}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->lastName}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->fatherName}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->phone}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->idCard}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->image}}</td>
+
+                                                                                                        <td class="px-6 py-4 text-sm flex flex-col items-center">
+                                                                                                                        <a href="{{ url('/edit/teacher/'.$teacher->id) }}" class="bg-green-500 p-2 rounded-md text-white"><i
+                                                                                                                                                        class="fa-solid fa-pencil"></i></a>
+                                                                                                                        <a href="{{ url('/delete/teacher/'.$teacher->id) }}" class="bg-red-500 p-2 mt-1 rounded-md text-white"><i
+                                                                                                                                                        class="fa-solid fa-trash"></i></a>
+                                                                                                        </td>
+
+                                                                                        </tr>
+                                                                                @endforeach
+
                                 </tbody>
                         </table>
                 </div>

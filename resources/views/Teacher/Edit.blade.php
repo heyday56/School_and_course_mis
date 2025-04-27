@@ -1,6 +1,7 @@
 <x-app-layout>
-    <div class="container h-screen flex flex-row justify-between  rounded-lg rounded-br-lg">
-        <div class="sidebare bg-white pt-5 w-1/5 h-full sticky">
+    <div class="container min-h-screen min-w-full max-w-full flex flex-row-reverse justify-start rounded-lg">
+        <!-- Sidebar -->
+        <div class="sidebare bg-white pt-5 w-1/5 h-full sticky min-h-screen">
             <div class="w-full my-5 flex flex-col items-center">
                 <span><img src="{{ asset('image/school.jpg') }}" alt="School Logo"
                         class="w-24 h-24 rounded-full object-cover mb-4 shadow-lg" />
@@ -13,21 +14,22 @@
             <div class="px-5">
                 <div onclick="OpenItem('teacher_item','teacher_icon')"
                     class="my-1.5 p-1 px-2  rounded-md hover:bg-green-500 flex flex-row justify-between">
-                    <div><i class="fa-solid fa-person-chalkboard mr-1"></i>
-                        <span>Teacher</span>
-                    </div>
                     <div id="teacher_icon">
                         <i class="fa-solid fa-angle-up ml-2"></i>
                     </div>
+                    <div>
+                        <span>استاد</span>
+                        <i class="fa-solid fa-person-chalkboard ml-1"></i>
+                    </div>
                 </div>
                 <ul id="teacher_item" style="display:none;" class="ml-2">
-                    <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
+                    <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
                         <i class="fa-solid fa-list"></i>
-                        <a href="{{ url('/read/teachers') }}" class="ml-1">Teachers</a>
+                        <a href="{{ url('/teachers') }}" class="mr-1">لیست</a>
                     </li>
-                    <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
+                    <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
                         <i class="fa-solid fa-plus"></i>
-                        <a href="#" class="ml-1">Add</a>
+                        <a href="{{ url('/add/teacher') }}" class="mr-1">اضافه کردن</a>
                     </li>
                 </ul>
             </div>
@@ -97,83 +99,94 @@
                     </li>
                 </ul>
             </div>
+
+
         </div>
-        <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit">
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" action="{{ url('/add/teacher') }}">
+
+        <!-- Content -->
+        <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit" dir="rtl">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post"
+                action="{{ url('/edit/teacher/' . $teacher->id) }}">
                 @csrf
+
                 <!-- First Name -->
-                <div class="flex flex-col">
-                    <label for="name" class="mb-2 text-sm font-medium text-gray-700">First Name</label>
-                    <input type="text" name="name" id="name" placeholder="Enter first name"
+                <div class="flex flex-col text-right">
+                    <label for="name" class="mb-2 text-sm font-medium text-gray-700">نام</label>
+                    <input type="text" name="name" id="name" placeholder="نام را وارد کنید" value="{{ $teacher->name }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
                 <!-- Last Name -->
-                <div class="flex flex-col">
-                    <label for="last_name" class="mb-2 text-sm font-medium text-gray-700">Last Name</label>
-                    <input type="text" name="lastName" id="last_name" placeholder="Enter last name"
+                <div class="flex flex-col text-right">
+                    <label for="last_name" class="mb-2 text-sm font-medium text-gray-700">نام خانوادگی</label>
+                    <input type="text" name="lastName" id="last_name" placeholder="نام خانوادگی را وارد کنید"
+                        value="{{ $teacher->lastName }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
                 <!-- Phone -->
-                <div class="flex flex-col">
-                    <label for="phone" class="mb-2 text-sm font-medium text-gray-700">Phone</label>
-                    <input type="text" name="phone" id="phone" placeholder="Enter phone number"
+                <div class="flex flex-col text-right">
+                    <label for="phone" class="mb-2 text-sm font-medium text-gray-700">شماره تلفن</label>
+                    <input type="text" name="phone" id="phone" placeholder="شماره تلفن را وارد کنید"
+                        value="{{ $teacher->phone }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
-
-                <div class="flex flex-col">
-                    <label for="fatherName" class="mb-2 text-sm font-medium text-gray-700">Father Name</label>
-                    <input type="text" name="fatherName" id="fatherName" placeholder="Enter Father Name"
+                <!-- Father Name -->
+                <div class="flex flex-col text-right">
+                    <label for="fatherName" class="mb-2 text-sm font-medium text-gray-700">نام پدر</label>
+                    <input type="text" name="fatherName" id="fatherName" placeholder="نام پدر را وارد کنید"
+                        value="{{ $teacher->fatherName }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
-                <div class="flex flex-col">
-                    <label for="idCard" class="mb-2 text-sm font-medium text-gray-700">ID Card</label>
-                    <input type="text" name="idCard" id="idCard" placeholder="Enter ID card"
+                <!-- ID Card -->
+                <div class="flex flex-col text-right">
+                    <label for="idCard" class="mb-2 text-sm font-medium text-gray-700">کد ملی</label>
+                    <input type="text" name="idCard" id="idCard" placeholder="کد ملی را وارد کنید"
+                        value="{{ $teacher->idCard }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
-                <div class="flex flex-col md:col-span-2">
-                    <label for="image" class="mb-2 text-sm font-medium text-gray-700">Id Card Name</label>
-                    <input type="text" name="image" id="idCard" placeholder="Enter full Image"
+                <!-- Image -->
+                <div class="flex flex-col md:col-span-2 text-right">
+                    <label for="image" class="mb-2 text-sm font-medium text-gray-700">آدرس تصویر</label>
+                    <input type="text" name="image" id="image" placeholder="آدرس تصویر را وارد کنید"
+                        value="{{ $teacher->image }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
-                <!-- Submit Button -->
-                <div class="md:col-span-2 text-right">
+                <!-- Submit -->
+                <div class="md:col-span-2 text-left">
                     <button type="submit"
                         class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        Submit
+                        ذخیره
                     </button>
                 </div>
             </form>
         </div>
 
-
     </div>
+
+    <!-- Sidebar JS -->
     <script>
         function OpenItem(itemId, iconId) {
-            document.getElementById("teacher_item").style.display = 'none';
-            document.getElementById("teacher_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-            document.getElementById("subject_item").style.display = 'none';
-            document.getElementById("subject_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-            document.getElementById("student_item").style.display = 'none';
-            document.getElementById("student_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-            document.getElementById("employee_item").style.display = 'none';
-            document.getElementById("employee_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
+            const allItems = ['teacher', 'subject', 'student', 'employee'];
+            allItems.forEach(id => {
+                document.getElementById(id + "_item").style.display = 'none';
+                document.getElementById(id + "_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
+            });
 
             const item = document.getElementById(itemId);
             const icon = document.getElementById(iconId);
 
-            if (item.style.display == "none") {
+            if (item.style.display === "none") {
                 item.style.display = "block";
                 icon.innerHTML = '<i class="fa-solid fa-angle-down ml-2"></i>';
             } else {
