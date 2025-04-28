@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,3 +37,23 @@ Route::post('/edit/teacher/{id}', [TeacherController::class, 'update'])->name('t
 
 // Delete the teacher
 Route::get('/delete/teacher/{id}', [TeacherController::class, 'delete'])->name('teacher.delete');
+
+
+// Student Routes
+
+// Student List
+Route::get('/read/students', [StudentController::class, 'index'])->name('student.read');
+
+// Add Teacher
+Route::get('/add/student', [StudentController::class, 'create'])->name('student.create');
+// Save The Data of Teacher
+Route::post('/add/student', [StudentController::class, 'insert'])->name('student.insert');
+
+// Create the edit Teacher form
+Route::get('/edit/student/{id}', [StudentController::class, 'edit'])->name('student.edit');
+
+// Update the teacher
+Route::post('/edit/student/{id}', [StudentController::class, 'update'])->name('student.update');
+
+// Delete the teacher
+Route::get('/delete/student/{id}', [StudentController::class, 'delete'])->name('student.delete');
