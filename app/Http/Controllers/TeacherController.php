@@ -59,6 +59,7 @@ class TeacherController extends Controller
     // Delete the teacher 
     function delete($id)
     {
+
         teacher::find($id)->delete();
         return redirect()->back();
     }
