@@ -58,24 +58,24 @@
             </div>
 
             <div class="px-5">
-                <div onclick="OpenItem('subject_item','subject_icon')"
+                <div onclick="OpenItem('course_item','course_icon')"
                     class="my-1.5 p-1 px-2  rounded-md hover:bg-green-500 flex flex-row justify-between">
-                    <div id="subject_icon">
+                    <div id="course_icon">
                         <i class="fa-solid fa-angle-up ml-2"></i>
                     </div>
                     <div>
-                        <span>مظامین</span>
+                        <span>صنف</span>
                         <i class="fa-solid fa-book-open"></i>
                     </div>
                 </div>
-                <ul id="subject_item" style="display:none;" class="ml-2">
+                <ul id="course_item" style="display:none;" class="ml-2">
                     <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
                         <i class="fa-solid fa-list"></i>
-                        <a href="{{ url('/teachers') }}" class="mr-1">لیست</a>
+                        <a href="{{ url('/read/courses') }}" class="mr-1">لیست</a>
                     </li>
                     <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
                         <i class="fa-solid fa-plus"></i>
-                        <a href="{{ url('/add/teacher') }}" class="mr-1">اضافه کردن</a>
+                        <a href="{{ url('/add/course') }}" class="mr-1">اضافه کردن</a>
                     </li>
                 </ul>
             </div>
@@ -186,7 +186,7 @@
     <!-- Sidebar JS -->
     <script>
         function OpenItem(itemId, iconId) {
-            const allItems = ['teacher', 'subject', 'student', 'employee'];
+            const allItems = ['teacher', 'course', 'student', 'employee'];
             allItems.forEach(id => {
                 document.getElementById(id + "_item").style.display = 'none';
                 document.getElementById(id + "_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';

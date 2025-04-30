@@ -80,7 +80,6 @@
                 </ul>
             </div>
 
-
             <div class="px-5">
                 <div onclick="OpenItem('employee_item','employee_icon')"
                     class="my-1.5 p-1 px-2  rounded-md hover:bg-green-500 flex flex-row justify-between">
@@ -103,83 +102,56 @@
                     </li>
                 </ul>
             </div>
+
+
+
+
+
         </div>
+        <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit">
+            <table class="w-full table-auto text-right border-separate border-spacing-0 rtl">
+                <thead class="bg-gray-100">
+                    <tr>
 
-        <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit" dir="rtl">
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post"
-                action="{{ url('/edit/student/' . $student->id) }}">
-                @csrf
 
-                <!-- First Name -->
-                <div class="flex flex-col text-right">
-                    <label for="name" class="mb-2 text-sm font-medium text-gray-700">نام</label>
-                    <input type="text" name="name" id="name" placeholder="نام را وارد کنید" value="{{ $student->name }}"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
-                </div>
 
-                <!-- Last Name -->
-                <div class="flex flex-col text-right">
-                    <label for="last_name" class="mb-2 text-sm font-medium text-gray-700">نام خانوادگی</label>
-                    <input type="text" name="lastName" id="last_name" placeholder="نام خانوادگی را وارد کنید"
-                        value="{{ $student->lastName }}"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
-                </div>
 
-                <!-- Father Name -->
-                <div class="flex flex-col text-right">
-                    <label for="fatherName" class="mb-2 text-sm font-medium text-gray-700">نام پدر</label>
-                    <input type="text" name="fatherName" id="fatherName" placeholder="نام پدر را وارد کنید"
-                        value="{{ $student->fatherName }}"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
-                </div>
 
-                <!-- Family Phone -->
-                <div class="flex flex-col text-right">
-                    <label for="family_phone" class="mb-2 text-sm font-medium text-gray-700">شماره تلقن اقارب</label>
-                    <input type="text" name="family_phone" id="family_phone" placeholder="شماره تلفن را وارد کنید"
-                        value="{{ $student->family_phone }}"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
-                </div>
+                        <th>عملیات</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">تاریخ ختم</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">تاریخ شروع</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">فیس</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">استاد</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام صنف</th>
 
-                <!-- ID Card -->
-                <div class="flex flex-col text-right">
-                    <label for="idCard" class="mb-2 text-sm font-medium text-gray-700">کد ملی</label>
-                    <input type="text" name="idCard" id="idCard" placeholder="کد ملی را وارد کنید"
-                        value="{{ $student->idCard }}"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
-                </div>
 
-                <!-- Birth Day -->
-                <div class="flex flex-col text-right">
-                    <label for="birthday" class="mb-2 text-sm font-medium text-gray-700">تاریخ تولد</label>
-                    <input type="date" name="birthday" id="birthday" placeholder=" تاریخ تولد را وارد کنید "
-                        value="{{ $student->birthday }}"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
-                </div>
 
-                <!-- Image -->
-                <div class="flex flex-col md:col-span-2 text-right">
-                    <label for="image" class="mb-2 text-sm font-medium text-gray-700">آدرس تصویر</label>
-                    <input type="text" name="image" id="image" placeholder="آدرس تصویر را وارد کنید"
-                        value="{{ $student->image }}"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
-                </div>
 
-                <!-- Submit -->
-                <div class="md:col-span-2 text-left">
-                    <button type="submit"
-                        class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
-                        ذخیره
-                    </button>
-                </div>
-            </form>
+
+                    </tr>
+                </thead>
+                <tbody class="text-gray-600">
+                    @foreach ($courses as $course)
+                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                            <td class="px-6 py-4 text-sm flex flex-col items-center">
+                                <a href="{{ url('/edit/course/' . $course->id) }}"
+                                    class="bg-green-500 p-2 rounded-md text-white">
+                                    <i class="fa-solid fa-pencil"></i>
+                                </a>
+                                <button onclick="confirmDelete({{ $course->id }})"
+                                    class="bg-red-500 p-2 mt-1 rounded-md text-white">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </td>
+                            <td class="px-6 py-4 text-sm">{{$course->end_date}}</td>
+                            <td class="px-6 py-4 text-sm">{{$course->start_date}}</td>
+                            <td class="px-6 py-4 text-sm">{{$course->fees}}</td>
+                            <td class="px-6 py-4 text-sm">{{$course->teacher_id}}</td>
+                            <td class="px-6 py-4 text-sm">{{$course->course_name}}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
 
 
@@ -204,6 +176,13 @@
             } else {
                 item.style.display = "none";
                 icon.innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
+            }
+        }
+
+        function confirmDelete(id) {
+            if (confirm('آیا می خواهید حذف کنید؟')) {
+                // Redirect to the delete route if the user confirms
+                window.location.href = '/delete/course/' + id;
             }
         }
     </script>

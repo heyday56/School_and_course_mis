@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CourseController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
@@ -44,16 +45,36 @@ Route::get('/delete/teacher/{id}', [TeacherController::class, 'delete'])->name('
 // Student List
 Route::get('/read/students', [StudentController::class, 'index'])->name('student.read');
 
-// Add Teacher
+// Add Student
 Route::get('/add/student', [StudentController::class, 'create'])->name('student.create');
 // Save The Data of Teacher
 Route::post('/add/student', [StudentController::class, 'insert'])->name('student.insert');
 
-// Create the edit Teacher form
+// Create the edit Student form
 Route::get('/edit/student/{id}', [StudentController::class, 'edit'])->name('student.edit');
 
-// Update the teacher
+// Update the Student
 Route::post('/edit/student/{id}', [StudentController::class, 'update'])->name('student.update');
 
-// Delete the teacher
+// Delete the Student
 Route::get('/delete/student/{id}', [StudentController::class, 'delete'])->name('student.delete');
+
+
+// Course Routes
+
+// Course List
+Route::get('/read/courses', [CourseController::class, 'index'])->name('course.read');
+
+// Add Course
+Route::get('/add/course', [CourseController::class, 'create'])->name('course.create');
+// Save The Data of Course
+Route::post('/add/course', [CourseController::class, 'insert'])->name('course.insert');
+
+// Create the edit Course form
+Route::get('/edit/course/{id}', [CourseController::class, 'edit'])->name('course.edit');
+
+// Update the Course
+Route::post('/edit/course/{id}', [CourseController::class, 'update'])->name('course.update');
+
+// Delete the Course
+Route::get('/delete/course/{id}', [CourseController::class, 'delete'])->name('course.delete');
