@@ -123,11 +123,7 @@
                         <th class="px-6 py-3 text-sm font-semibold text-gray-700">فیس</th>
                         <th class="px-6 py-3 text-sm font-semibold text-gray-700">استاد</th>
                         <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام صنف</th>
-
-
-
-
-
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">آی دی</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600">
@@ -148,6 +144,7 @@
                             <td class="px-6 py-4 text-sm">{{$course->fees}}</td>
                             <td class="px-6 py-4 text-sm">{{$course->teacher_id}}</td>
                             <td class="px-6 py-4 text-sm">{{$course->course_name}}</td>
+                            <td class="px-6 py-4 text-sm">{{$course->id}}</td>
                         </tr>
                     @endforeach
                 </tbody>
