@@ -106,61 +106,54 @@
         </div>
 
         <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit" dir="rtl">
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" action="{{ url('/add/teacher/') }}">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" action="{{ url('/add/course/') }}">
                 @csrf
 
-                <!-- First Name -->
+                <!-- Course Name -->
                 <div class="flex flex-col text-right">
-                    <label for="name" class="mb-2 text-sm font-medium text-gray-700">نام</label>
-                    <input type="text" name="name" id="name" placeholder="نام را وارد کنید"
+                    <label for="course_name" class="mb-2 text-sm font-medium text-gray-700">نام صنف</label>
+                    <input type="text" name="course_name" id="course_name" placeholder="نام صنف را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
-                <!-- Last Name -->
+                <!-- Teacher Name -->
                 <div class="flex flex-col text-right">
-                    <label for="last_name" class="mb-2 text-sm font-medium text-gray-700">نام خانوادگی</label>
-                    <input type="text" name="lastName" id="last_name" placeholder="نام خانوادگی را وارد کنید"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
+                    <label for="teacher_id" class="mb-2 text-sm font-medium text-gray-700">استاد</label>
+                    <select name="teacher_id" id="teacher_id"
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        @foreach ($teachers as $teacher)
+                            <option value="{{ $teacher->id }}">{{ $teacher->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
 
-                <!-- Father Name -->
+                <!-- Fees -->
                 <div class="flex flex-col text-right">
-                    <label for="fatherName" class="mb-2 text-sm font-medium text-gray-700">نام پدر</label>
-                    <input type="text" name="fatherName" id="fatherName" placeholder="نام پدر را وارد کنید"
+                    <label for="fees" class="mb-2 text-sm font-medium text-gray-700">فیس</label>
+                    <input type="number" name="fees" id="fees" placeholder=" فیس را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
-                <!-- Phone -->
+                <!-- Start Date -->
                 <div class="flex flex-col text-right">
-                    <label for="phone" class="mb-2 text-sm font-medium text-gray-700">شماره تلفن</label>
-                    <input type="text" name="phone" id="phone" placeholder="شماره تلفن را وارد کنید"
+                    <label for="start_date" class="mb-2 text-sm font-medium text-gray-700">تاریخ شروع</label>
+                    <input type="date" name="start_date" id="start_date"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
-
-
-                <!-- ID Card -->
+                <!-- End Date -->
                 <div class="flex flex-col text-right">
-                    <label for="idCard" class="mb-2 text-sm font-medium text-gray-700">کد ملی</label>
-                    <input type="text" name="idCard" id="idCard" placeholder="کد ملی را وارد کنید"
+                    <label for="end_date" class="mb-2 text-sm font-medium text-gray-700">تاریخ ختم</label>
+                    <input type="date" name="end_date" id="end_date"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
-                <!-- Image -->
-                <div class="flex flex-col md:col-span-2 text-right">
-                    <label for="image" class="mb-2 text-sm font-medium text-gray-700">آدرس تصویر</label>
-                    <input type="text" name="image" id="image" placeholder="آدرس تصویر را وارد کنید"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
-                </div>
-
-                <!-- Submit -->
-                <div class="md:col-span-2 text-left">
+                <!-- Submit Button -->
+                <div class="md:col-span-2 text-right">
                     <button type="submit"
                         class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">
                         ذخیره

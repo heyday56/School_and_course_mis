@@ -1,6 +1,7 @@
 <x-app-layout>
-        <div class="container h-screen flex flex-row justify-between  rounded-lg rounded-br-lg">
-                <div class="sidebare bg-white pt-5 w-1/5 h-full sticky">
+        <div class="container min-h-screen min-w-full max-w-full flex flex-row-reverse justify-start rounded-lg">
+                <!-- Sidebar -->
+                <div class="sidebare bg-white pt-5 w-1/5 h-full sticky min-h-screen">
                         <div class="w-full my-5 flex flex-col items-center">
                                 <span><img src="{{ asset('image/school.jpg') }}" alt="School Logo"
                                                 class="w-24 h-24 rounded-full object-cover mb-4 shadow-lg" />
@@ -13,170 +14,175 @@
                         <div class="px-5">
                                 <div onclick="OpenItem('teacher_item','teacher_icon')"
                                         class="my-1.5 p-1 px-2  rounded-md hover:bg-green-500 flex flex-row justify-between">
-                                        <div><i class="fa-solid fa-person-chalkboard mr-1"></i>
-                                                <span>Teacher</span>
-                                        </div>
                                         <div id="teacher_icon">
                                                 <i class="fa-solid fa-angle-up ml-2"></i>
                                         </div>
+                                        <div>
+                                                <span>استاد</span>
+                                                <i class="fa-solid fa-person-chalkboard ml-1"></i>
+                                        </div>
                                 </div>
                                 <ul id="teacher_item" style="display:none;" class="ml-2">
-                                        <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
+                                        <li
+                                                class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
                                                 <i class="fa-solid fa-list"></i>
-                                                <a href="{{ url('/teachers') }}" class="ml-1">Teachers</a>
+                                                <a href="{{ url('/read/teachers') }}" class="mr-1">لیست</a>
                                         </li>
-                                        <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
+                                        <li
+                                                class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
                                                 <i class="fa-solid fa-plus"></i>
-                                                <a href="{{ url('/add/teacher') }}" class="ml-1">Add</a>
+                                                <a href="{{ url('/add/teacher') }}" class="mr-1">اضافه کردن</a>
                                         </li>
                                 </ul>
                         </div>
-                        <div class="px-5">
-                                <div onclick="OpenItem('subject_item','subject_icon')"
-                                        class="my-1.5 p-1 px-2  rounded-md hover:bg-green-500 flex flex-row justify-between">
-                                        <div><i class="fa-solid fa-book-open"></i>
 
-                                                <span>Subject</span>
-                                        </div>
-                                        <div id="subject_icon">
-                                                <i class="fa-solid fa-angle-up ml-2"></i>
-                                        </div>
-                                </div>
-                                <ul id="subject_item" style="display:none;" class="ml-2">
-                                        <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
-                                                <i class="fa-solid fa-list"></i>
-                                                <a href="#" class="ml-1">Subjects</a>
-                                        </li>
-                                        <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
-                                                <i class="fa-solid fa-plus"></i>
-                                                <a href="#" class="ml-1">Add</a>
-                                        </li>
-                                </ul>
-                        </div>
                         <div class="px-5">
                                 <div onclick="OpenItem('student_item','student_icon')"
                                         class="my-1.5 p-1 px-2  rounded-md hover:bg-green-500 flex flex-row justify-between">
-                                        <div> <i class="fa-solid fa-graduation-cap mr-1"></i>
-
-                                                <span>Student</span>
-                                        </div>
                                         <div id="student_icon">
                                                 <i class="fa-solid fa-angle-up ml-2"></i>
                                         </div>
+                                        <div>
+                                                <span>شاگرد</span>
+                                                <i class="fa-solid fa-graduation-cap mr-1"></i>
+                                        </div>
                                 </div>
-                                <ul id="student_item" style="display:none;" class="ml-1">
-                                        <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
+                                <ul id="student_item" style="display:none;" class="ml-2">
+                                        <li
+                                                class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
                                                 <i class="fa-solid fa-list"></i>
-                                                <a href="#" class="ml-1">Subjects</a>
+                                                <a href="{{ url('/read/students') }}" class="mr-1">لیست</a>
                                         </li>
-                                        <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
+                                        <li
+                                                class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
                                                 <i class="fa-solid fa-plus"></i>
-                                                <a href="#" class="ml-1">Add</a>
+                                                <a href="{{ url('/add/student') }}" class="mr-1">اضافه کردن</a>
                                         </li>
                                 </ul>
                         </div>
+
+                        <div class="px-5">
+                                <div onclick="OpenItem('course_item','course_icon')"
+                                        class="my-1.5 p-1 px-2  rounded-md hover:bg-green-500 flex flex-row justify-between">
+                                        <div id="course_icon">
+                                                <i class="fa-solid fa-angle-up ml-2"></i>
+                                        </div>
+                                        <div>
+                                                <span>صنف</span>
+                                                <i class="fa-solid fa-book-open"></i>
+                                        </div>
+                                </div>
+                                <ul id="course_item" style="display:none;" class="ml-2">
+                                        <li
+                                                class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
+                                                <i class="fa-solid fa-list"></i>
+                                                <a href="{{ url('/read/courses') }}" class="mr-1">لیست</a>
+                                        </li>
+                                        <li
+                                                class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
+                                                <i class="fa-solid fa-plus"></i>
+                                                <a href="{{ url('/add/course') }}" class="mr-1">اضافه کردن</a>
+                                        </li>
+                                </ul>
+                        </div>
+
 
                         <div class="px-5">
                                 <div onclick="OpenItem('employee_item','employee_icon')"
                                         class="my-1.5 p-1 px-2  rounded-md hover:bg-green-500 flex flex-row justify-between">
-                                        <div> <i class="fa-solid fa-user mr-1"></i>
-                                                <span>Employee</span>
-                                        </div>
                                         <div id="employee_icon">
                                                 <i class="fa-solid fa-angle-up ml-2"></i>
                                         </div>
+                                        <div>
+                                                <span>کارمندان</span>
+                                                <i class="fa-solid fa-angle-up ml-2"></i>
+                                        </div>
                                 </div>
-                                <ul id="employee_item" style="display:none;" class="ml-1">
-                                        <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
+                                <ul id="employee_item" style="display:none;" class="ml-2">
+                                        <li
+                                                class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
                                                 <i class="fa-solid fa-list"></i>
-                                                <a href="#" class="ml-1">Subjects</a>
+                                                <a href="{{ url('/teachers') }}" class="mr-1">لیست</a>
                                         </li>
-                                        <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
+                                        <li
+                                                class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row-reverse items-end">
                                                 <i class="fa-solid fa-plus"></i>
-                                                <a href="#" class="ml-1">Add</a>
+                                                <a href="{{ url('/add/teacher') }}" class="mr-1">اضافه کردن</a>
                                         </li>
                                 </ul>
                         </div>
 
 
+
+
+
                 </div>
-                <div class="bg-white w-2/3 mt-10 p-5 rounded-lg shadow-lg h-fit">
-                        <table class="w-full table-auto text-left border-separate border-spacing-0">
+                <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit">
+                        <table class="w-full table-auto text-right border-separate border-spacing-0 rtl">
                                 <thead class="bg-gray-100">
                                         <tr>
-                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">ID</th>
-                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">Name</th>
-                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">Last Name</th>
-                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">Phone</th>
-                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">Class</th>
-                                                <th>Action</th>
+
+
+
+
+
+                                                <th>عملیات</th>
+                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">تصویر</th>
+                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">کارت شناسایی
+                                                </th>
+                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">تلفن</th>
+                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام پدر</th>
+                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام خانوادگی
+                                                </th>
+                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام</th>
+                                                <th class="px-6 py-3 text-sm font-semibold text-gray-700">کد</th>
+
+
+
+
+
                                         </tr>
                                 </thead>
                                 <tbody class="text-gray-600">
-                                        <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                                <td class="px-6 py-4 text-sm">101</td>
-                                                <td class="px-6 py-4 text-sm">Ali</td>
-                                                <td class="px-6 py-4 text-sm">Hassani</td>
-                                                <td class="px-6 py-4 text-sm">+93798573634</td>
-                                                <td class="px-6 py-4 text-sm">Grade nine</td>
-                                                <td class="px-6 py-4 text-sm">
-                                                        <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-pencil"></i></a>
-                                                        <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-trash"></i></a>
-                                                </td>
+                                        @foreach ($teachers as $teacher)
+                                                                                        <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                                                                                        <td class="px-6 py-4 text-sm flex flex-col items-center">
+                                                                                                                        <a href="{{ url('/edit/teacher/' . $teacher->id) }}"
+                                                                                                                                        class="bg-green-500 p-2 rounded-md text-white">
+                                                                                                                                        <i class="fa-solid fa-pencil"></i>
+                                                                                                                        </a>
+                                                                                                                        <button onclick="confirmDelete({{ $teacher->id }})"
+                                                                                                                                        class="bg-red-500 p-2 mt-1 rounded-md text-white">
+                                                                                                                                        <i class="fa-solid fa-trash"></i>
+                                                                                                                        </button>
+                                                                                                        </td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->image}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->idCard}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->phone}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->fatherName}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->lastName}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->name}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm">{{$teacher->id}}</td>
 
-                                        </tr>
-                                        <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                                <td class="px-6 py-4 text-sm">102</td>
-                                                <td class="px-6 py-4 text-sm">Sara</td>
-                                                <td class="px-6 py-4 text-sm">Noori</td>
-                                                <td class="px-6 py-4 text-sm">+93798647254</td>
-                                                <td class="px-6 py-4 text-sm">Grade ten</td>
-                                                <td class="px-6 py-4 text-sm">
-                                                        <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-pencil"></i></a>
-                                                        <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-trash"></i></a>
-                                                </td>
-                                        </tr>
-                                        <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                                <td class="px-6 py-4 text-sm">103</td>
-                                                <td class="px-6 py-4 text-sm">John</td>
-                                                <td class="px-6 py-4 text-sm">Doe</td>
-                                                <td class="px-6 py-4 text-sm">+93798456234</td>
-                                                <td class="px-6 py-4 text-sm">Grade eleven</td>
-                                                <td class="px-6 py-4 text-sm">
-                                                        <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-pencil"></i></a>
-                                                        <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-trash"></i></a>
-                                                </td>
-                                        </tr>
-                                        <tr class="border-b border-gray-200 hover:bg-gray-50">
-                                                <td class="px-6 py-4 text-sm">104</td>
-                                                <td class="px-6 py-4 text-sm">Emily</td>
-                                                <td class="px-6 py-4 text-sm">Khan</td>
-                                                <td class="px-6 py-4 text-sm">+93798347261</td>
-                                                <td class="px-6 py-4 text-sm">Grade twelve</td>
-                                                <td class="px-6 py-4 text-sm">
-                                                        <a href="#" class="bg-green-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-pencil"></i></a>
-                                                        <a href="#" class="bg-red-500 p-2 rounded-md text-white"><i
-                                                                        class="fa-solid fa-trash"></i></a>
-                                                </td>
-                                        </tr>
+
+
+
+
+
+                                                                                        </tr>
+                                                                                @endforeach
                                 </tbody>
                         </table>
                 </div>
+
 
         </div>
         <script>
                 function OpenItem(itemId, iconId) {
                         document.getElementById("teacher_item").style.display = 'none';
                         document.getElementById("teacher_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-                        document.getElementById("subject_item").style.display = 'none';
-                        document.getElementById("subject_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
+                        document.getElementById("course_item").style.display = 'none';
+                        document.getElementById("course_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
                         document.getElementById("student_item").style.display = 'none';
                         document.getElementById("student_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
                         document.getElementById("employee_item").style.display = 'none';
@@ -191,6 +197,13 @@
                         } else {
                                 item.style.display = "none";
                                 icon.innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
+                        }
+                }
+
+                function confirmDelete(id) {
+                        if (confirm('آیا می خواهید حذف کنید؟')) {
+                                // Redirect to the delete route if the user confirms
+                                window.location.href = '/delete/teacher/' + id;
                         }
                 }
         </script>

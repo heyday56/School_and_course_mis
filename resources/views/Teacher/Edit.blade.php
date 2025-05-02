@@ -103,16 +103,23 @@
                     </li>
                 </ul>
             </div>
+
+
+
+
+
         </div>
 
+        <!-- Content -->
         <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit" dir="rtl">
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" action="{{ url('/add/teacher/') }}">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post"
+                action="{{ url('/edit/teacher/' . $teacher->id) }}">
                 @csrf
 
                 <!-- First Name -->
                 <div class="flex flex-col text-right">
                     <label for="name" class="mb-2 text-sm font-medium text-gray-700">نام</label>
-                    <input type="text" name="name" id="name" placeholder="نام را وارد کنید"
+                    <input type="text" name="name" id="name" placeholder="نام را وارد کنید" value="{{ $teacher->name }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
@@ -121,6 +128,7 @@
                 <div class="flex flex-col text-right">
                     <label for="last_name" class="mb-2 text-sm font-medium text-gray-700">نام خانوادگی</label>
                     <input type="text" name="lastName" id="last_name" placeholder="نام خانوادگی را وارد کنید"
+                        value="{{ $teacher->lastName }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
@@ -129,6 +137,7 @@
                 <div class="flex flex-col text-right">
                     <label for="fatherName" class="mb-2 text-sm font-medium text-gray-700">نام پدر</label>
                     <input type="text" name="fatherName" id="fatherName" placeholder="نام پدر را وارد کنید"
+                        value="{{ $teacher->fatherName }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
@@ -137,6 +146,7 @@
                 <div class="flex flex-col text-right">
                     <label for="phone" class="mb-2 text-sm font-medium text-gray-700">شماره تلفن</label>
                     <input type="text" name="phone" id="phone" placeholder="شماره تلفن را وارد کنید"
+                        value="{{ $teacher->phone }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
@@ -147,6 +157,7 @@
                 <div class="flex flex-col text-right">
                     <label for="idCard" class="mb-2 text-sm font-medium text-gray-700">کد ملی</label>
                     <input type="text" name="idCard" id="idCard" placeholder="کد ملی را وارد کنید"
+                        value="{{ $teacher->idCard }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
@@ -155,6 +166,7 @@
                 <div class="flex flex-col md:col-span-2 text-right">
                     <label for="image" class="mb-2 text-sm font-medium text-gray-700">آدرس تصویر</label>
                     <input type="text" name="image" id="image" placeholder="آدرس تصویر را وارد کنید"
+                        value="{{ $teacher->image }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
@@ -169,23 +181,21 @@
             </form>
         </div>
 
-
     </div>
+
+    <!-- Sidebar JS -->
     <script>
         function OpenItem(itemId, iconId) {
-            document.getElementById("teacher_item").style.display = 'none';
-            document.getElementById("teacher_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-            document.getElementById("course_item").style.display = 'none';
-            document.getElementById("course_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-            document.getElementById("student_item").style.display = 'none';
-            document.getElementById("student_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-            document.getElementById("employee_item").style.display = 'none';
-            document.getElementById("employee_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
+            const allItems = ['teacher', 'course', 'student', 'employee'];
+            allItems.forEach(id => {
+                document.getElementById(id + "_item").style.display = 'none';
+                document.getElementById(id + "_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
+            });
 
             const item = document.getElementById(itemId);
             const icon = document.getElementById(iconId);
 
-            if (item.style.display == "none") {
+            if (item.style.display === "none") {
                 item.style.display = "block";
                 icon.innerHTML = '<i class="fa-solid fa-angle-down ml-2"></i>';
             } else {

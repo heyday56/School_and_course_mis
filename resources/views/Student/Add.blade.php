@@ -106,7 +106,7 @@
         </div>
 
         <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit" dir="rtl">
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" action="{{ url('/add/teacher/') }}">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" action="{{ url('/add/student/') }}">
                 @csrf
 
                 <!-- First Name -->
@@ -133,20 +133,26 @@
                         required>
                 </div>
 
-                <!-- Phone -->
+                <!-- Family Phone -->
                 <div class="flex flex-col text-right">
-                    <label for="phone" class="mb-2 text-sm font-medium text-gray-700">شماره تلفن</label>
-                    <input type="text" name="phone" id="phone" placeholder="شماره تلفن را وارد کنید"
+                    <label for="family_phone" class="mb-2 text-sm font-medium text-gray-700">شماره تلقن اقارب</label>
+                    <input type="text" name="family_phone" id="family_phone" placeholder="شماره تلفن را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
-
-
 
                 <!-- ID Card -->
                 <div class="flex flex-col text-right">
                     <label for="idCard" class="mb-2 text-sm font-medium text-gray-700">کد ملی</label>
                     <input type="text" name="idCard" id="idCard" placeholder="کد ملی را وارد کنید"
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required>
+                </div>
+
+                <!-- Birth Day -->
+                <div class="flex flex-col text-right">
+                    <label for="birthday" class="mb-2 text-sm font-medium text-gray-700">تاریخ تولد</label>
+                    <input type="date" name="birthday" id="birthday" placeholder=" تاریخ تولد را وارد کنید "
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
