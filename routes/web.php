@@ -1,8 +1,9 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\SalaryController;
 use App\Http\Controllers\StudentController;
-use App\Http\Controllers\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -20,24 +21,24 @@ Route::middleware([
 });
 
 
-// Teacher Routes
+// Employee Routes
 
-// Teacher List
-Route::get('/read/teachers', [TeacherController::class, 'index'])->name('teacher.read');
+// Employee List
+Route::get('/read/employees', [EmployeeController::class, 'index'])->name('employee.read');
 
-// Add Teacher
-Route::get('/add/teacher', [TeacherController::class, 'create'])->name('teacher.create');
-// Save The Data of Teacher
-Route::post('/add/teacher', [TeacherController::class, 'insert'])->name('teacher.insert');
+// Add Employee
+Route::get('/add/employee', [EmployeeController::class, 'create'])->name('employee.create');
+// Save The Data of Employee
+Route::post('/add/employee', [EmployeeController::class, 'insert'])->name('employee.insert');
 
-// Create the edit Teacher form
-Route::get('/edit/teacher/{id}', [TeacherController::class, 'edit'])->name('teacher.edit');
+// Create the edit Employee form
+Route::get('/edit/employee/{id}', [EmployeeController::class, 'edit'])->name('employee.edit');
 
-// Update the teacher
-Route::post('/edit/teacher/{id}', [TeacherController::class, 'update'])->name('teacher.update');
+// Update the Employee
+Route::post('/edit/employee/{id}', [EmployeeController::class, 'update'])->name('employee.update');
 
-// Delete the teacher
-Route::get('/delete/teacher/{id}', [TeacherController::class, 'delete'])->name('teacher.delete');
+// Delete the Employee
+Route::get('/delete/employee/{id}', [EmployeeController::class, 'delete'])->name('employee.delete');
 
 
 // Student Routes
@@ -78,3 +79,24 @@ Route::post('/edit/course/{id}', [CourseController::class, 'update'])->name('cou
 
 // Delete the Course
 Route::get('/delete/course/{id}', [CourseController::class, 'delete'])->name('course.delete');
+
+
+// Salary Routes
+
+// Salary List
+Route::get('/read/salaries', [SalaryController::class, 'index'])->name('salary.read');
+
+// Add salary
+Route::get('/add/salary', [SalaryController::class, 'create'])->name('salary.create');
+
+// Save The Data of salary
+Route::post('/add/salary', [SalaryController::class, 'insert'])->name('salary.insert');
+
+// Create the edit salary form
+Route::get('/edit/salary/{id}', [SalaryController::class, 'edit'])->name('salary.edit');
+
+// Update the salary
+Route::post('/edit/salary/{id}', [SalaryController::class, 'update'])->name('salary.update');
+
+// Delete the salary
+Route::get('/delete/salary/{id}', [SalaryController::class, 'delete'])->name('salary.delete');

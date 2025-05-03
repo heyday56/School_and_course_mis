@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Laravel\Prompts\Table;
 
-class teacher extends Model
+class employee extends Model
 {
-    protected $table = 'teacher';
+    protected $table = 'employee';
 }

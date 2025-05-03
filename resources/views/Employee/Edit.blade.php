@@ -3,14 +3,17 @@
         <!-- Sidebar -->
         @include('layouts.Sidebar')
 
+        <!-- Content -->
         <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit" dir="rtl">
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" action="{{ url('/add/student/') }}">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post"
+                action="{{ url('/edit/employee/' . $employee->id) }}">
                 @csrf
 
                 <!-- First Name -->
                 <div class="flex flex-col text-right">
                     <label for="name" class="mb-2 text-sm font-medium text-gray-700">نام</label>
                     <input type="text" name="name" id="name" placeholder="نام را وارد کنید"
+                        value="{{ $employee->name }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
@@ -19,6 +22,7 @@
                 <div class="flex flex-col text-right">
                     <label for="last_name" class="mb-2 text-sm font-medium text-gray-700">نام خانوادگی</label>
                     <input type="text" name="lastName" id="last_name" placeholder="نام خانوادگی را وارد کنید"
+                        value="{{ $employee->lastName }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
@@ -27,38 +31,55 @@
                 <div class="flex flex-col text-right">
                     <label for="fatherName" class="mb-2 text-sm font-medium text-gray-700">نام پدر</label>
                     <input type="text" name="fatherName" id="fatherName" placeholder="نام پدر را وارد کنید"
+                        value="{{ $employee->fatherName }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
-                <!-- Family Phone -->
+                <!-- Phone -->
                 <div class="flex flex-col text-right">
-                    <label for="family_phone" class="mb-2 text-sm font-medium text-gray-700">شماره تلقن اقارب</label>
-                    <input type="text" name="family_phone" id="family_phone" placeholder="شماره تلفن را وارد کنید"
+                    <label for="phone" class="mb-2 text-sm font-medium text-gray-700">شماره تلفن</label>
+                    <input type="text" name="phone" id="phone" placeholder="شماره تلفن را وارد کنید"
+                        value="{{ $employee->phone }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
+
+
 
                 <!-- ID Card -->
                 <div class="flex flex-col text-right">
                     <label for="idCard" class="mb-2 text-sm font-medium text-gray-700">کد ملی</label>
                     <input type="text" name="idCard" id="idCard" placeholder="کد ملی را وارد کنید"
+                        value="{{ $employee->idCard }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
 
-                <!-- Birth Day -->
+                <!-- Position -->
                 <div class="flex flex-col text-right">
-                    <label for="birthday" class="mb-2 text-sm font-medium text-gray-700">تاریخ تولد</label>
-                    <input type="date" name="birthday" id="birthday" placeholder=" تاریخ تولد را وارد کنید "
+                    <label for="position" class="mb-2 text-sm font-medium text-gray-700">وظیفه</label>
+                    <input type="text" name="position" value="{{ $employee->position }}" id="position"
+                        placeholder="وظیفه را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
+
+                <!-- Salary -->
+                <div class="flex flex-col text-right">
+                    <label for="salary" class="mb-2 text-sm font-medium text-gray-700">معاش</label>
+                    <input type="text" name="salary" value="{{ $employee->salary }}" id="salary"
+                        placeholder="معاش را وارد کنید"
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required>
+                </div>
+
 
                 <!-- Image -->
                 <div class="flex flex-col md:col-span-2 text-right">
                     <label for="image" class="mb-2 text-sm font-medium text-gray-700">آدرس تصویر</label>
                     <input type="text" name="image" id="image" placeholder="آدرس تصویر را وارد کنید"
+                        value="{{ $employee->image }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
@@ -73,8 +94,9 @@
             </form>
         </div>
 
-
     </div>
+
+    <!-- Sidebar JS -->
     <script>
         function OpenItem(itemId, iconId) {
             document.getElementById("salary_item").style.display = 'none';
