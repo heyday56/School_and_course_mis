@@ -3,6 +3,7 @@
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\SalaryController;
+use App\Http\Controllers\StudentClassController;
 use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 
@@ -100,3 +101,25 @@ Route::post('/edit/salary/{id}', [SalaryController::class, 'update'])->name('sal
 
 // Delete the salary
 Route::get('/delete/salary/{id}', [SalaryController::class, 'delete'])->name('salary.delete');
+
+
+
+// Student Class Routes
+
+// Student Class List
+Route::get('/read/student_classes', [StudentClassController::class, 'index'])->name('student_class.read');
+
+// Add Student Class
+Route::get('/add/student_class', [StudentClassController::class, 'create'])->name('student_class.create');
+
+// Save The Data of Student Class
+Route::post('/add/student_class', [StudentClassController::class, 'insert'])->name('student_class.insert');
+
+// Create the edit Student Class form
+Route::get('/edit/student_class/{id}', [StudentClassController::class, 'edit'])->name('student_class.edit');
+
+// Update the Student Class
+Route::post('/edit/student_class/{id}', [StudentClassController::class, 'update'])->name('student_class.update');
+
+// Delete the Student Class
+Route::get('/delete/student_class/{id}', [StudentClassController::class, 'delete'])->name('student_class.delete');
