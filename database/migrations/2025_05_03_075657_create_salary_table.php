@@ -18,7 +18,7 @@ return new class extends Migration {
             $table->unsignedBigInteger('employee_id');
             $table->enum('status', ['در حال بررسی', 'پرداخت شده', 'پرداخت نشده']); // Add allowed values
 
-            // Optional: Add foreign key constraint
+            // foreign key constraint
             $table->foreign('employee_id')->references('id')->on('employee')->onDelete('cascade');
         });
     }
