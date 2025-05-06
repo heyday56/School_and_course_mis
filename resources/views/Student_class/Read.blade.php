@@ -8,44 +8,31 @@
                 <thead class="bg-gray-100">
                     <tr>
                         <th>عملیات</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">تصویر</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">تاریخ تولد</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">کارت شناسایی
-                        </th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">تلفن اقارب</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام پدر</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام خانوادگی
-                        </th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">کد</th>
-
-
-
-
-
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">نمره</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">تاریخ</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام صنف</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام شاگرد</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">آی دی</th>
                     </tr>
                 </thead>
                 <tbody class="text-gray-600">
-                    @foreach ($students as $student)
+                    @foreach ($student_classes as $student_class)
                         <tr class="border-b border-gray-200 hover:bg-gray-50">
                             <td class="px-6 py-4 text-sm flex flex-col items-center">
-                                <a href="{{ url('/edit/student/' . $student->id) }}"
+                                <a href="{{ url('/edit/student_class/' . $student_class->id) }}"
                                     class="bg-green-500 p-2 rounded-md text-white">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
-                                <button onclick="confirmDelete({{ $student->id }})"
+                                <button onclick="confirmDelete({{ $student_class->id }})"
                                     class="bg-red-500 p-2 mt-1 rounded-md text-white">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                             </td>
-                            <td class="px-6 py-4 text-sm">{{$student->image}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->birthday}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->idCard}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->family_phone}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->fatherName}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->lastName}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->name}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->id}}</td>
+                            <td class="px-6 py-4 text-sm">{{$student_class->score}}</td>
+                            <td class="px-6 py-4 text-sm">{{$student_class->date_join}}</td>
+                            <td class="px-6 py-4 text-sm">{{$student_class->course_id}}</td>
+                            <td class="px-6 py-4 text-sm">{{$student_class->student_id}}</td>
+                            <td class="px-6 py-4 text-sm">{{$student_class->id}}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -80,7 +67,7 @@
         function confirmDelete(id) {
             if (confirm('آیا می خواهید حذف کنید؟')) {
                 // Redirect to the delete route if the user confirms
-                window.location.href = '/delete/student/' + id;
+                window.location.href = '/delete/student_class/' + id;
             }
         }
     </script>

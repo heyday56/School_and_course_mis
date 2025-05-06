@@ -1,51 +1,42 @@
 <x-app-layout>
     <div class="container min-h-screen min-w-full max-w-full flex flex-row-reverse justify-start rounded-lg">
-        <!-- Sidebar -->
         @include('layouts.Sidebar')
-
-        <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit">
+        <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit overflow-scroll">
             <table class="w-full table-auto text-right border-separate border-spacing-0 rtl">
                 <thead class="bg-gray-100">
                     <tr>
                         <th>عملیات</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">تصویر</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">تاریخ تولد</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">کارت شناسایی
-                        </th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">تلفن اقارب</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام پدر</th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام خانوادگی
-                        </th>
-                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">وضعیت</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">تاریخ</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">معاش</th>
+                        <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام کارمند</th>
                         <th class="px-6 py-3 text-sm font-semibold text-gray-700">کد</th>
-
-
-
-
-
                     </tr>
                 </thead>
                 <tbody class="text-gray-600">
-                    @foreach ($students as $student)
+                    @foreach ($salaries as $salary)
                         <tr class="border-b border-gray-200 hover:bg-gray-50">
                             <td class="px-6 py-4 text-sm flex flex-col items-center">
-                                <a href="{{ url('/edit/student/' . $student->id) }}"
+                                <a href="{{ url('/edit/salary/' . $salary->id) }}"
                                     class="bg-green-500 p-2 rounded-md text-white">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
-                                <button onclick="confirmDelete({{ $student->id }})"
+                                <button onclick="confirmDelete({{ $salary->id }})"
                                     class="bg-red-500 p-2 mt-1 rounded-md text-white">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
                             </td>
-                            <td class="px-6 py-4 text-sm">{{$student->image}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->birthday}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->idCard}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->family_phone}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->fatherName}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->lastName}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->name}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student->id}}</td>
+                            @if ($salary->status == 'پرداخت شده')
+                                <td class="px-6 py-4 text-sm text-green-400">{{$salary->status}}</td>
+                            @elseif($salary->status == 'پرداخت نشده')
+                                <td class="px-6 py-4 text-sm text-red-400">{{$salary->status}}</td>
+                            @else
+                                <td class="px-6 py-4 text-sm text-yellow-400">{{$salary->status}}</td>
+                            @endif
+                            <td class="px-6 py-4 text-sm">{{$salary->date}}</td>
+                            <td class="px-6 py-4 text-sm">{{$salary->amount}}</td>
+                            <td class="px-6 py-4 text-sm">{{$salary->employee_id}}</td>
+                            <td class="px-6 py-4 text-sm">{{$salary->id}}</td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -64,7 +55,6 @@
             document.getElementById("student_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
             document.getElementById("employee_item").style.display = 'none';
             document.getElementById("employee_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-
             const item = document.getElementById(itemId);
             const icon = document.getElementById(iconId);
 
@@ -76,11 +66,10 @@
                 icon.innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
             }
         }
-
         function confirmDelete(id) {
             if (confirm('آیا می خواهید حذف کنید؟')) {
                 // Redirect to the delete route if the user confirms
-                window.location.href = '/delete/student/' + id;
+                window.location.href = '/delete/salary/' + id;
             }
         }
     </script>

@@ -2,65 +2,69 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\teacher;
+use App\Models\employee;
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
+class EmployeeController extends Controller
 {
-    // The teacher list 
+    // The employee list 
     function index()
     {
-        $teachers = teacher::all();
-        return view('Teacher.Read', compact('teachers'));
+        $employees = employee::all();
+        return view('Employee.Read', compact('employees'));
     }
 
-    // The teacher insert form
+    // The employee insert form
     function create()
     {
-        return view('Teacher.Add');
+        return view('Employee.Add');
     }
 
-    // Add the teacher
+    // Add the employee
     function insert(Request $request)
     {
-        $teacher = new teacher();
+        $teacher = new employee();
         $teacher->name = $request->name;
         $teacher->lastName = $request->lastName;
         $teacher->phone = $request->phone;
         $teacher->fatherName = $request->fatherName;
         $teacher->idCard = $request->idCard;
         $teacher->image = $request->image;
+        $teacher->position = $request->position;
+        $teacher->salary = $request->salary;
         $teacher->save();
-        return redirect()->route('teacher.read');
+        return redirect()->route('employee.read');
     }
 
-    // Create the edit teacher
+    // Create the edit employee
     function edit($id)
     {
-        $teacher = teacher::find($id)->first();
-        return view('Teacher.Edit', compact('teacher'));
+        $employee = employee::find($id)->first();
+        return view('Employee.Edit', compact('employee'));
     }
 
-    // Edit the teacher
+    // Edit the employee
     function update(Request $request, $id)
     {
 
-        $teacher = teacher::find($id)->first();
+        $teacher = employee::find($id)->first();
         $teacher->name = $request->name;
         $teacher->lastName = $request->lastName;
         $teacher->phone = $request->phone;
         $teacher->fatherName = $request->fatherName;
         $teacher->idCard = $request->idCard;
         $teacher->image = $request->image;
+        $teacher->position = $request->position;
+        $teacher->salary = $request->salary;
         $teacher->save();
-        return redirect()->route('teacher.read');
+        return redirect()->route('employee.read');
     }
 
-    // Delete the teacher 
+    // Delete the employee 
     function delete($id)
     {
 
-        teacher::find($id)->delete();
+        employee::find($id)->delete();
         return redirect()->back();
     }
 }

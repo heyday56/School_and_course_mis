@@ -45,7 +45,7 @@
                 <ul id="subject_item" style="display:none;" class="ml-2">
                     <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
                         <i class="fa-solid fa-list"></i>
-                        <a href="#" class="ml-1">Subjects</a>
+                        <a href="{{ url('/read/employees') }}" class="ml-1">Subjects</a>
                     </li>
                     <li class="py-1 px-2  rounded-md hover:bg-green-500 flex flex-row items-center">
                         <i class="fa-solid fa-plus"></i>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\course;
+use App\Models\employee;
 use App\Models\teacher;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,7 @@ class CourseController extends Controller
     // Create The course add form
     function create()
     {
-        $teachers = teacher::all();
+        $teachers = employee::all();
         return view('Course.Add', compact('teachers'));
     }
 
@@ -39,9 +40,10 @@ class CourseController extends Controller
     function edit($id)
     {
         $course = course::findOrFail($id);
-        $teachers = teacher::all();
+        $teachers = employee::all();
         return view('Course.Edit', compact('course', 'teachers'));
     }
+
     // Update the selected data
     function update(Request $request, $id)
     {
@@ -61,4 +63,6 @@ class CourseController extends Controller
         course::find($id)->delete();
         return redirect()->route('course.read');
     }
+
+    
 }

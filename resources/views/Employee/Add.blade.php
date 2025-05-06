@@ -2,9 +2,8 @@
     <div class="container min-h-screen min-w-full max-w-full flex flex-row-reverse justify-start rounded-lg">
         <!-- Sidebar -->
         @include('layouts.Sidebar')
-
         <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit" dir="rtl">
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" action="{{ url('/add/student/') }}">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" action="{{ url('/add/employee/') }}">
                 @csrf
 
                 <!-- First Name -->
@@ -31,13 +30,15 @@
                         required>
                 </div>
 
-                <!-- Family Phone -->
+                <!-- Phone -->
                 <div class="flex flex-col text-right">
-                    <label for="family_phone" class="mb-2 text-sm font-medium text-gray-700">شماره تلقن اقارب</label>
-                    <input type="text" name="family_phone" id="family_phone" placeholder="شماره تلفن را وارد کنید"
+                    <label for="phone" class="mb-2 text-sm font-medium text-gray-700">شماره تلفن</label>
+                    <input type="text" name="phone" id="phone" placeholder="شماره تلفن را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
+
+
 
                 <!-- ID Card -->
                 <div class="flex flex-col text-right">
@@ -47,10 +48,18 @@
                         required>
                 </div>
 
-                <!-- Birth Day -->
+                <!-- Position -->
                 <div class="flex flex-col text-right">
-                    <label for="birthday" class="mb-2 text-sm font-medium text-gray-700">تاریخ تولد</label>
-                    <input type="date" name="birthday" id="birthday" placeholder=" تاریخ تولد را وارد کنید "
+                    <label for="position" class="mb-2 text-sm font-medium text-gray-700">وظیفه</label>
+                    <input type="text" name="position" id="position" placeholder="وظیفه را وارد کنید"
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                        required>
+                </div>
+
+                <!-- Salary -->
+                <div class="flex flex-col text-right">
+                    <label for="salary" class="mb-2 text-sm font-medium text-gray-700">معاش</label>
+                    <input type="text" name="salary" id="salary" placeholder="معاش را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>
