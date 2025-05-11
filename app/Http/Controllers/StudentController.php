@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\student;
+use App\Models\student_class;
 use Illuminate\Http\Request;
 
 class StudentController extends Controller
@@ -14,6 +15,8 @@ class StudentController extends Controller
         $students = student::all();
         return view('Student.read', compact('students'));
     }
+
+    
 
     // Create Student Add Form
     function create()

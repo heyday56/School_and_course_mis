@@ -47,8 +47,12 @@ Route::get('/delete/employee/{id}', [EmployeeController::class, 'delete'])->name
 // Student List
 Route::get('/read/students', [StudentController::class, 'index'])->name('student.read');
 
+// View a Student
+Route::get('/student/{id}/print', [StudentClassController::class, 'print'])->name('student.print');
+
 // Add Student
 Route::get('/add/student', [StudentController::class, 'create'])->name('student.create');
+
 // Save The Data of Teacher
 Route::post('/add/student', [StudentController::class, 'insert'])->name('student.insert');
 

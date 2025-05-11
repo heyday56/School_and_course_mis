@@ -11,7 +11,7 @@ class SalaryController extends Controller
     // Read All Salaries
     function index()
     {
-        $salaries = salary::all();
+        $salaries = salary::with('employee')->get();
         return view('Salary.Read', compact('salaries'));
     }
     // Create Add salary form

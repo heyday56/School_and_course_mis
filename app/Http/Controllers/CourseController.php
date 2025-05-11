@@ -12,14 +12,14 @@ class CourseController extends Controller
     // Read Courses
     function index()
     {
-        $courses = course::all();
+        $courses = Course::with('teacher')->get();
         return view('Course.Read', compact('courses'));
     }
 
     // Create The course add form
     function create()
     {
-        $teachers = employee::all();
+        $teachers = employee::where('position', '=', 'استاد')->get();
         return view('Course.Add', compact('teachers'));
     }
 
@@ -64,5 +64,5 @@ class CourseController extends Controller
         return redirect()->route('course.read');
     }
 
-    
+
 }

@@ -35,7 +35,7 @@
                             @endif
                             <td class="px-6 py-4 text-sm">{{$salary->date}}</td>
                             <td class="px-6 py-4 text-sm">{{$salary->amount}}</td>
-                            <td class="px-6 py-4 text-sm">{{$salary->employee_id}}</td>
+                            <td class="px-6 py-4 text-sm">{{$salary->employee->name}}</td>
                             <td class="px-6 py-4 text-sm">{{$salary->id}}</td>
                         </tr>
                     @endforeach

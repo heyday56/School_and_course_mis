@@ -30,8 +30,8 @@
                             </td>
                             <td class="px-6 py-4 text-sm">{{$student_class->score}}</td>
                             <td class="px-6 py-4 text-sm">{{$student_class->date_join}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student_class->course_id}}</td>
-                            <td class="px-6 py-4 text-sm">{{$student_class->student_id}}</td>
+                            <td class="px-6 py-4 text-sm">{{$student_class->course->course_name}}</td>
+                            <td class="px-6 py-4 text-sm">{{$student_class->student->name}}</td>
                             <td class="px-6 py-4 text-sm">{{$student_class->id}}</td>
                         </tr>
                     @endforeach

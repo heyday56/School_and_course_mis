@@ -32,7 +32,7 @@ class StudentClassController extends Controller
     // Read All classes
     function index()
     {
-        $student_classes = student_class::all();
+        $student_classes = student_class::with(['student', 'course'])->get();
         return view('Student_class.Read', compact('student_classes'));
     }
 
@@ -61,5 +61,13 @@ class StudentClassController extends Controller
     {
         student_class::find($id)->delete();
         return redirect()->back();
+    }
+
+    // View The selected Student
+    function print($id)
+    {
+        $student_classes = student_class::where('id', '=', $id)->get();
+        $student = student::findOrFail($id);
+        return view('Student.View', compact('student', 'student_classes'));
     }
 }

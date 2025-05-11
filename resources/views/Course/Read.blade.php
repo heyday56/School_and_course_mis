@@ -37,7 +37,7 @@
                             <td class="px-6 py-4 text-sm">{{$course->end_date}}</td>
                             <td class="px-6 py-4 text-sm">{{$course->start_date}}</td>
                             <td class="px-6 py-4 text-sm">{{$course->fees}}</td>
-                            <td class="px-6 py-4 text-sm">{{$course->teacher_id}}</td>
+                            <td class="px-6 py-4 text-sm">{{ $course->teacher->name ?? 'نامعلوم' }}</td>
                             <td class="px-6 py-4 text-sm">{{$course->course_name}}</td>
                             <td class="px-6 py-4 text-sm">{{$course->id}}</td>
                         </tr>
