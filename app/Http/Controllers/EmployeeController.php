@@ -23,16 +23,21 @@ class EmployeeController extends Controller
     // Add the employee
     function insert(Request $request)
     {
-        $teacher = new employee();
-        $teacher->name = $request->name;
-        $teacher->lastName = $request->lastName;
-        $teacher->phone = $request->phone;
-        $teacher->fatherName = $request->fatherName;
-        $teacher->idCard = $request->idCard;
-        $teacher->image = $request->image;
-        $teacher->position = $request->position;
-        $teacher->salary = $request->salary;
-        $teacher->save();
+        $employee = new employee();
+        $employee->name = $request->name;
+        $employee->lastName = $request->lastName;
+        $employee->phone = $request->phone;
+        $employee->fatherName = $request->fatherName;
+        $employee->idCard = $request->idCard;
+        $employee->position = $request->position;
+        $employee->salary = $request->salary;
+        if ($request->hasFile('image')) {
+            $file = $request->file('image');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $file->move(public_path('images'), $fileName);
+            $employee->image = 'images/' . $fileName;
+        }
+        $employee->save();
         return redirect()->route('employee.read');
     }
 
@@ -44,21 +49,47 @@ class EmployeeController extends Controller
     }
 
     // Edit the employee
-    function update(Request $request, $id)
-    {
 
-        $teacher = employee::find($id)->first();
-        $teacher->name = $request->name;
-        $teacher->lastName = $request->lastName;
-        $teacher->phone = $request->phone;
-        $teacher->fatherName = $request->fatherName;
-        $teacher->idCard = $request->idCard;
-        $teacher->image = $request->image;
-        $teacher->position = $request->position;
-        $teacher->salary = $request->salary;
-        $teacher->save();
+    public function update(Request $request, $id)
+    {
+        // Find the employee record by ID
+        $employee = employee::find($id);
+
+        // Update other fields
+        $employee->name = $request->name;
+        $employee->lastName = $request->lastName;
+        $employee->phone = $request->phone;
+        $employee->fatherName = $request->fatherName;
+        $employee->idCard = $request->idCard;
+
+        // Handle image upload if a new image is provided
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists (optional, if you want to clean up old images)
+            if ($employee->image && file_exists(public_path($employee->image))) {
+                unlink(public_path($employee->image));
+            }
+
+            // Get the uploaded image and generate a unique name
+            $file = $request->file('image');
+            $filename = time() . '_' . $file->getClientOriginalName();
+
+            // Move the file to the images directory
+            $file->move(public_path('images'), $filename);
+
+            // Update the image path in the database
+            $employee->image = 'images/' . $filename;
+        }
+
+        // Update other fields
+        $employee->position = $request->position;
+        $employee->salary = $request->salary;
+
+        // Save the updated employee record
+        $employee->save();
+
         return redirect()->route('employee.read');
     }
+
 
     // Delete the employee 
     function delete($id)

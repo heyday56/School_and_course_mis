@@ -5,11 +5,6 @@
                         <table class="w-full table-auto text-right border-separate border-spacing-0 rtl">
                                 <thead class="bg-gray-100">
                                         <tr>
-
-
-
-
-
                                                 <th>عملیات</th>
                                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">تصویر</th>
                                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">کد ملی
@@ -22,11 +17,6 @@
                                                 </th>
                                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">نام</th>
                                                 <th class="px-6 py-3 text-sm font-semibold text-gray-700">کد</th>
-
-
-
-
-
                                         </tr>
                                 </thead>
                                 <tbody class="text-gray-600">
@@ -42,7 +32,9 @@
                                                                                                                                         <i class="fa-solid fa-trash"></i>
                                                                                                                         </button>
                                                                                                         </td>
-                                                                                                        <td class="px-6 py-4 text-sm">{{$employee->image}}</td>
+                                                                                                        <td class="px-6 py-4 text-sm"> <img src="{{ asset($employee->image) }}"
+                                                                                                                                        class="w-20 h-20">
+                                                                                                        </td>
                                                                                                         <td class="px-6 py-4 text-sm">{{$employee->idCard}}</td>
                                                                                                         <td class="px-6 py-4 text-sm">{{$employee->salary}}</td>
                                                                                                         <td class="px-6 py-4 text-sm">{{$employee->position}}</td>
@@ -51,11 +43,6 @@
                                                                                                         <td class="px-6 py-4 text-sm">{{$employee->lastName}}</td>
                                                                                                         <td class="px-6 py-4 text-sm">{{$employee->name}}</td>
                                                                                                         <td class="px-6 py-4 text-sm">{{$employee->id}}</td>
-
-
-
-
-
 
                                                                                         </tr>
                                                                                 @endforeach

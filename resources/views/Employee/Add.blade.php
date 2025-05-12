@@ -3,7 +3,8 @@
         <!-- Sidebar -->
         @include('layouts.Sidebar')
         <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit" dir="rtl">
-            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" action="{{ url('/add/employee/') }}">
+            <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post" action="{{ url('/add/employee/') }}"
+                enctype="multipart/form-data">
                 @csrf
 
                 <!-- First Name -->
@@ -67,7 +68,7 @@
                 <!-- Image -->
                 <div class="flex flex-col md:col-span-2 text-right">
                     <label for="image" class="mb-2 text-sm font-medium text-gray-700">آدرس تصویر</label>
-                    <input type="text" name="image" id="image" placeholder="آدرس تصویر را وارد کنید"
+                    <input type="file" name="image" id="image"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
                 </div>

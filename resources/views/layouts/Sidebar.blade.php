@@ -1,7 +1,7 @@
 <!-- Sidebar -->
 <div class="sidebare bg-white pt-5 w-1/5 h-full sticky min-h-screen">
     <div class="w-full my-5 flex flex-col items-center">
-        <span><img src="{{ asset('image/school.jpg') }}" alt="School Logo"
+        <span><img src="{{ asset('images/school.jpg') }}" alt="School Logo"
                 class="w-24 h-24 rounded-full object-cover mb-4 shadow-lg" />
         </span>
         <span>

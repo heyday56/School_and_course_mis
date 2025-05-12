@@ -2,6 +2,13 @@
     <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit" dir="rtl">
         <form class="grid grid-cols-1 md:grid-cols-2 gap-6">
             @csrf
+
+            <div class="flex flex-col md:col-span-2 text-right">
+
+                <img src="{{asset($student->image)}}" class="px-4 py-2 border border-gray-300 rounded-lg w-50 h-50"
+                    required>
+            </div>
+
             <!-- First Name -->
             <div class="flex flex-col text-right">
                 <label for="name" class="mb-2 text-sm font-medium text-gray-700">نام</label>
@@ -56,13 +63,7 @@
             </div>
 
             <!-- Image -->
-            <div class="flex flex-col md:col-span-2 text-right">
-                <label for="image" class="mb-2 text-sm font-medium text-gray-700">آدرس تصویر</label>
-                <input type="text" name="image" id="image" placeholder="آدرس تصویر را وارد کنید"
-                    value="{{ $student->image }}"
-                    class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    required>
-            </div>
+
 
         </form>
 

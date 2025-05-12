@@ -6,7 +6,7 @@
         <!-- Content -->
         <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit" dir="rtl">
             <form class="grid grid-cols-1 md:grid-cols-2 gap-6" method="post"
-                action="{{ url('/edit/employee/' . $employee->id) }}">
+                action="{{ url('/edit/employee/' . $employee->id) }}" enctype="multipart/form-data">
                 @csrf
 
                 <!-- First Name -->
@@ -74,14 +74,19 @@
                         required>
                 </div>
 
-
                 <!-- Image -->
-                <div class="flex flex-col md:col-span-2 text-right">
-                    <label for="image" class="mb-2 text-sm font-medium text-gray-700">آدرس تصویر</label>
-                    <input type="text" name="image" id="image" placeholder="آدرس تصویر را وارد کنید"
+                <div class="flex flex-col text-right">
+                    <label for="image" class="mb-2 text-sm font-medium text-gray-700">تصویر</label>
+                    <input type="file" name="image" value="{{ $employee->salary }}" id="image"
                         value="{{ $employee->image }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                </div>
+
+
+                <div class="w-max-100 h-max-100">
+
+                    <img src="{{ asset($employee->image) }}" class="border border-gray-300 rounded-lg w-20 h-30">
                 </div>
 
                 <!-- Submit -->

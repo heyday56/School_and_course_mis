@@ -3,7 +3,7 @@
         <!-- Sidebar -->
         @include('layouts.Sidebar')
 
-        <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit">
+        <div class="bg-white w-2/3 mx-auto mt-10 p-10 rounded-xl shadow-xl h-fit overflow-scroll">
             <table class="w-full table-auto text-right border-separate border-spacing-0 rtl">
                 <thead class="bg-gray-100">
                     <tr>
@@ -28,7 +28,7 @@
                                     class="bg-green-500 p-2 rounded-md text-white">
                                     <i class="fa-solid fa-pencil"></i>
                                 </a>
-                               
+
                                 <button onclick="confirmDelete({{ $student->id }})"
                                     class="bg-red-500 p-2 mt-1 rounded-md text-white">
                                     <i class="fa-solid fa-trash"></i>
@@ -38,7 +38,9 @@
                                     <i class="fa-solid fa-print"></i>
                                 </button>
                             </td>
-                            <td class="px-6 py-4 text-sm">{{$student->image}}</td>
+                            <td class="px-6 py-4 text-sm">
+                                <img src="{{ asset($student->image) }}" class="w-20 h-20">
+                            </td>
                             <td class="px-6 py-4 text-sm">{{$student->birthday}}</td>
                             <td class="px-6 py-4 text-sm">{{$student->idCard}}</td>
                             <td class="px-6 py-4 text-sm">{{$student->family_phone}}</td>
@@ -83,15 +85,15 @@
                 window.location.href = '/delete/student/' + id;
             }
         }
-    
+
         function confirmDelete(studentId) {
-        // Open the print view in a new window
-        var printWindow = window.open('{{ route('student.print', ['id' => '__studentId__']) }}'.replace('__studentId__', studentId));
+            // Open the print view in a new window
+            var printWindow = window.open('{{ route('student.print', ['id' => '__studentId__']) }}'.replace('__studentId__', studentId));
 
             // After the new page loads, call the print function
-            printWindow.onload = function() {
+            printWindow.onload = function () {
                 printWindow.print();
-        };
-    }
+            };
+        }
     </script>
 </x-app-layout>
