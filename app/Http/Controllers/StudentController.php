@@ -27,6 +27,19 @@ class StudentController extends Controller
     // Insert Data into student table
     function insert(Request $request)
     {
+        // Define validation rules
+        $validated = $request->validate([
+            'name' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'lastName' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'fatherName' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'family_phone' => 'required|digits:10',
+            'idCard' => 'required|digits:5',
+            'birthday' => 'required|date',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+
+
         $student = new student();
         $student->name = $request->name;
         $student->lastName = $request->lastName;
@@ -62,6 +75,16 @@ class StudentController extends Controller
     // Update the data of student
     function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'name' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'lastName' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'fatherName' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'family_phone' => 'required|digits:10',
+            'idCard' => 'required|digits:5',
+            'birthday' => 'required|date',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
         $student = student::find($id)->first();
         $student->name = $request->name;
         $student->lastName = $request->lastName;
@@ -73,7 +96,7 @@ class StudentController extends Controller
         if ($request->hasFile('image')) {
             // Delete the old image if it exists (optional, if you want to clean up old images)
             if ($student->image && file_exists(public_path($student->image))) {
-                unlink(public_path($employee->image));
+                unlink(public_path($student->image));
             }
 
             // Get the uploaded image and generate a unique name

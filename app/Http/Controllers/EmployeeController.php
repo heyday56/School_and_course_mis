@@ -23,6 +23,17 @@ class EmployeeController extends Controller
     // Add the employee
     function insert(Request $request)
     {
+        $validated = $request->validate([
+            'name' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'lastName' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'fatherName' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'phone' => 'required|digits:10',
+            'idCard' => 'required|digits:5',
+            'salary' => 'required|numeric|min:1',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+
         $employee = new employee();
         $employee->name = $request->name;
         $employee->lastName = $request->lastName;
@@ -52,6 +63,16 @@ class EmployeeController extends Controller
 
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'name' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'lastName' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'fatherName' => 'required|regex:/^[\pL\s]+$/u|max:255',
+            'phone' => 'required|digits:10',
+            'idCard' => 'required|digits:5',
+            'salary' => 'required|numeric|min:1',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
         // Find the employee record by ID
         $employee = employee::find($id);
 

@@ -20,6 +20,7 @@ class StudentClassController extends Controller
     // Insert data into student_class table
     function insert(Request $request)
     {
+        
         $student_class = new student_class();
         $student_class->student_id = $request->student_id;
         $student_class->course_id = $request->course_id;

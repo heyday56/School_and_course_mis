@@ -33,7 +33,7 @@
                                     class="bg-red-500 p-2 mt-1 rounded-md text-white">
                                     <i class="fa-solid fa-trash"></i>
                                 </button>
-                                <button onclick="confirmDelete({{ $student->id }})"
+                                <button onclick="confirmPrint({{ $student->id }})"
                                     class="bg-green-500 p-2 mt-1 rounded-md text-white">
                                     <i class="fa-solid fa-print"></i>
                                 </button>
@@ -86,7 +86,7 @@
             }
         }
 
-        function confirmDelete(studentId) {
+        function confirmPrint(studentId) {
             // Open the print view in a new window
             var printWindow = window.open('{{ route('student.print', ['id' => '__studentId__']) }}'.replace('__studentId__', studentId));
 

@@ -14,6 +14,9 @@
                     <input type="text" name="name" id="name" placeholder="نام را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('name')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Last Name -->
@@ -22,6 +25,9 @@
                     <input type="text" name="lastName" id="last_name" placeholder="نام خانوادگی را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('lastName')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Father Name -->
@@ -30,6 +36,9 @@
                     <input type="text" name="fatherName" id="fatherName" placeholder="نام پدر را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('fatherName')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Family Phone -->
@@ -38,6 +47,9 @@
                     <input type="text" name="family_phone" id="family_phone" placeholder="شماره تلفن را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('family_phone')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- ID Card -->
@@ -46,6 +58,9 @@
                     <input type="text" name="idCard" id="idCard" placeholder="کد ملی را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('idCard')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Birth Day -->
@@ -54,6 +69,9 @@
                     <input type="date" name="birthday" id="birthday" placeholder=" تاریخ تولد را وارد کنید "
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('birthday')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Image -->
@@ -62,6 +80,9 @@
                     <input type="file" name="image" id="image"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('image')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Submit -->

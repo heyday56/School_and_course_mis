@@ -13,6 +13,9 @@
                     <input type="text" name="name" id="name" placeholder="نام را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('name')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Last Name -->
@@ -21,6 +24,9 @@
                     <input type="text" name="lastName" id="last_name" placeholder="نام خانوادگی را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('lastName')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Father Name -->
@@ -29,6 +35,9 @@
                     <input type="text" name="fatherName" id="fatherName" placeholder="نام پدر را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('fatherName')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Phone -->
@@ -37,6 +46,9 @@
                     <input type="text" name="phone" id="phone" placeholder="شماره تلفن را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('phone')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
 
@@ -47,14 +59,22 @@
                     <input type="text" name="idCard" id="idCard" placeholder="کد ملی را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('idCard')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Position -->
                 <div class="flex flex-col text-right">
                     <label for="position" class="mb-2 text-sm font-medium text-gray-700">وظیفه</label>
-                    <input type="text" name="position" id="position" placeholder="وظیفه را وارد کنید"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
+                    <select name="position" id="position"
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <option value="استاد">استاد</option>
+                        <option value="مدیر">مدیر</option>
+                        <option value="کاگر">کاگر</option>
+                        <option value="گارد">گارد</option>
+
+                    </select>
                 </div>
 
                 <!-- Salary -->
@@ -63,6 +83,10 @@
                     <input type="text" name="salary" id="salary" placeholder="معاش را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('salary')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
+
                 </div>
 
                 <!-- Image -->
@@ -71,6 +95,9 @@
                     <input type="file" name="image" id="image"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('image')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Submit -->

@@ -14,6 +14,9 @@
                     <input type="text" name="name" id="name" placeholder="نام را وارد کنید" value="{{ $student->name }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('name')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Last Name -->
@@ -23,6 +26,9 @@
                         value="{{ $student->lastName }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('lastName')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Father Name -->
@@ -32,6 +38,9 @@
                         value="{{ $student->fatherName }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('fatherName')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Family Phone -->
@@ -41,6 +50,9 @@
                         value="{{ $student->family_phone }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('family_phone')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- ID Card -->
@@ -50,6 +62,9 @@
                         value="{{ $student->idCard }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('idCard')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Birth Day -->
@@ -59,6 +74,9 @@
                         value="{{ $student->birthday }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('birthday')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Image -->
@@ -67,6 +85,9 @@
                     <input type="file" name="image" id="image" value="{{ $student->image }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('image')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
                 <div class="w-max-100 h-max-100">
 

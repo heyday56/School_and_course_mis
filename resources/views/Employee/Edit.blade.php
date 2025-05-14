@@ -16,6 +16,9 @@
                         value="{{ $employee->name }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('name')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Last Name -->
@@ -25,6 +28,9 @@
                         value="{{ $employee->lastName }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('lastName')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Father Name -->
@@ -34,6 +40,9 @@
                         value="{{ $employee->fatherName }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('fatherName')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Phone -->
@@ -43,6 +52,9 @@
                         value="{{ $employee->phone }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('phone')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
 
@@ -54,15 +66,23 @@
                         value="{{ $employee->idCard }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('idCard')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Position -->
                 <div class="flex flex-col text-right">
                     <label for="position" class="mb-2 text-sm font-medium text-gray-700">وظیفه</label>
-                    <input type="text" name="position" value="{{ $employee->position }}" id="position"
-                        placeholder="وظیفه را وارد کنید"
-                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                        required>
+                    <select name="position" id="position"
+                        class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400">
+                        <option value="{{$employee->position}}" selected>{{$employee->position}}</option>
+                        <option value="استاد">استاد</option>
+                        <option value="مدیر">مدیر</option>
+                        <option value="کاگر">کاگر</option>
+                        <option value="گارد">گارد</option>
+
+                    </select>
                 </div>
 
                 <!-- Salary -->
@@ -72,6 +92,9 @@
                         placeholder="معاش را وارد کنید"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('salary')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
                 <!-- Image -->
@@ -81,6 +104,9 @@
                         value="{{ $employee->image }}"
                         class="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                         required>
+                    @error('image')
+                        <span class="text-red-500">{{ $message }}</span>
+                    @enderror
                 </div>
 
 
