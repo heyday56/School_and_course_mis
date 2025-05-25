@@ -126,29 +126,4 @@
         </div>
 
     </div>
-
-    <!-- Sidebar JS -->
-    <script>
-        function OpenItem(itemId, iconId) {
-            document.getElementById("salary_item").style.display = 'none';
-            document.getElementById("salary_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-            document.getElementById("course_item").style.display = 'none';
-            document.getElementById("course_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-            document.getElementById("student_item").style.display = 'none';
-            document.getElementById("student_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-            document.getElementById("employee_item").style.display = 'none';
-            document.getElementById("employee_icon").innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-
-            const item = document.getElementById(itemId);
-            const icon = document.getElementById(iconId);
-
-            if (item.style.display == "none") {
-                item.style.display = "block";
-                icon.innerHTML = '<i class="fa-solid fa-angle-down ml-2"></i>';
-            } else {
-                item.style.display = "none";
-                icon.innerHTML = '<i class="fa-solid fa-angle-up ml-2"></i>';
-            }
-        }
-    </script>
 </x-app-layout>
